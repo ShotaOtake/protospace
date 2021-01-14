@@ -26,7 +26,8 @@
           <%# ログインしていないときは以下を表示するようにしましょう %>
             <div class="nav__right">
               <%= link_to "ログイン", root_path, class: :nav__btn %>
-              <%= link_to "新規登録", root_path, class: :nav__btn %>
+              <%# ヘッダーの「新規登録」ボタンに適切なパスを記載した（devise/registrations#newに該当するパスを、rails routesを用いて確認する） %>
+              <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
             </div>
           <%# // ログインしていないときは上記を表示するようにしましょう %>
         </div>
