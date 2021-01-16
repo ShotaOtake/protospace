@@ -12,6 +12,8 @@
     
     <div class="card__wrapper">
       <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
+      <%# index.html.erbから_prototype.html.erbを呼び出し、プロトタイプ毎に、画像・プロトタイプ名・キャッチコピー・投稿者の名前を表示できるようにした（renderメソッドにcollectionオプションを用いて実装する） %>
+      <%= render partial: 'prototype', collection: @prototypes %>
     </div>
   </div>
 </main>
