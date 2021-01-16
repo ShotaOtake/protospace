@@ -52,3 +52,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# deviseをGemfileに記述し、bundle installを実行
+gem 'devise'

@@ -1,0 +1,17 @@
+<main class="main">
+  <div class="inner">
+    <%# ログインしているときは以下を表示する %>
+    <%# ログインしているときは、トップページに「こんにちはユーザー名さん」が表示されるように条件分岐した %>
+    <% if user_signed_in? %>
+      <div class="greeting">
+        こんにちは、
+        <%# 「こんにちはユーザー名さん」の「ユーザー名」の部分に、今ログインしているユーザーのユーザー名が表示されるようにした %>
+        <%= link_to "#{current_user.name}さん", root_path, class: :greeting__link%>
+      </div>
+    <% end %>
+    
+    <div class="card__wrapper">
+      <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
+    </div>
+  </div>
+</main>
