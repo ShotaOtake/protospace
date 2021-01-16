@@ -9,6 +9,15 @@ class PrototypesController < ApplicationController
   end
 
   def create
+    # createアクションにデータ保存のための記述
+    # 保存されたときはルートパスに戻る(redirect_to)
+    # 保存されなかったときは新規投稿ページへ戻る(render)
+    @prototype = Prototype.new(prototype_params)
+    if @prototype.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
 
