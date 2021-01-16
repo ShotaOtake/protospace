@@ -23,7 +23,8 @@
             <div class="nav__right">
             <%# ヘッダーの「ログアウト」ボタンに適切なパスを記載した（HTTPメソッドの指定に注意。） %>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
-              <%= link_to "New Proto", root_path, class: :nav__btn %>
+              <%# ヘッダーの「New Proto」ボタンから、新規投稿ページに遷移するようにパスを設定した（rails routesを用いて確認する） %>
+              <%= link_to "New Proto", new_prototype_path, class: :nav__btn %>
             </div>
           <% else %>
           <%# ログインしていないときは以下を表示するようにしましょう %>
