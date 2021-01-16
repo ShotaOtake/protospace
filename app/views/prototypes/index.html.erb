@@ -5,7 +5,8 @@
     <% if user_signed_in? %>
       <div class="greeting">
         こんにちは、
-        <%= link_to "ユーザー名さん", root_path, class: :greeting__link%>
+        <%# 「こんにちはユーザー名さん」の「ユーザー名」の部分に、今ログインしているユーザーのユーザー名が表示されるようにした %>
+        <%= link_to "#{current_user.name}さん", root_path, class: :greeting__link%>
       </div>
     <% end %>
     
