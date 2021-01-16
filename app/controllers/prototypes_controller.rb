@@ -1,5 +1,7 @@
 class PrototypesController < ApplicationController
   def index
+    # インスタンス変数@prototypesを定義し、すべてのプロトタイプの情報を代入
+    @prototypes = Prototype.all
   end
 
   # prototypesコントローラーにnewアクションとcreateアクションを設定

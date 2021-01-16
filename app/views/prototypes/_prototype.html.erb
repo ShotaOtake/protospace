@@ -1,0 +1,11 @@
+<div class="card">
+<%# 正しくプロトタイプの表示ができるように、_prototype.html.erbを編集した（ただし仮置きのリンクroot_pathはそのままで良い） %>
+  <%= link_to image_tag(prototype.image, class: :card__img ), root_path%>
+  <div class="card__body">
+    <%= link_to prototype.title, root_path, class: :card__title%>
+    <p class="card__summary">
+      <%= prototype.catch_copy %>
+    </p>
+    <%= link_to "by #{prototype.user.name}", root_path, class: :card__user %>
+  </div>
+</div>
