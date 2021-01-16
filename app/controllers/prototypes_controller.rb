@@ -22,6 +22,9 @@ class PrototypesController < ApplicationController
     end
   end
 
+  # prototypesコントローラーにshowアクションを設定
+  def show
+  end
 
 
   private
