@@ -11,4 +11,12 @@ class PrototypesController < ApplicationController
   def create
   end
 
+
+
+  private
+  # prototypesコントローラーのprivateメソッドにストロングパラメーターをセットし、特定の値のみを受け付けるようにした。且つ、user_idもmergeした
+  def prototype_params
+    params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
+  end
+
 end
