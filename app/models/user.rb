@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # Userモデルにアソシエーション記述した
+  has_many :prototypes
 
   # Userモデルに各カラムのバリデーションを記述（「emailとpasswordが空だと保存できない」というバリデーションは標準で用意されているため、記述する必要はない）
   validates :name, presence: true
