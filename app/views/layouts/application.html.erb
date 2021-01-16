@@ -17,23 +17,27 @@
           <div class="nav__left">
             <%= link_to image_tag("logo.png", class: :logo), root_path %>
           </div>
+          <%# ヘッダーの「ログイン」「新規登録」と、「ログアウト」「New Proto」を、ログインをしているときとしていないときで表示が変わるように条件分岐した %>
           <%# ログインしているときは以下を表示するようにしましょう %>
-            <%# <div class="nav__right"> %>
-              <%# <%= link_to "ログアウト", root_path, class: :nav__logout %>
-              <%# <%= link_to "New Proto", root_path, class: :nav__btn %>
-            <%# </div> %>
-          <%# // ログインしているときは上記を表示するようにしましょう %>
+          <% if user_signed_in? %>
+            <div class="nav__right">
+              <%= link_to "ログアウト", root_path, class: :nav__logout %>
+              <%= link_to "New Proto", root_path, class: :nav__btn %>
+            </div>
+          <% else %>
           <%# ログインしていないときは以下を表示するようにしましょう %>
             <div class="nav__right">
               <%= link_to "ログイン", root_path, class: :nav__btn %>
               <%# ヘッダーの「新規登録」ボタンに適切なパスを記載した（devise/registrations#newに該当するパスを、rails routesを用いて確認する） %>
               <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
             </div>
-          <%# // ログインしていないときは上記を表示するようにしましょう %>
+          <% end %>
         </div>
       </div>
     </header>
+
     <%= yield %>
+
     <footer class="footer">
       <p class="copyright">Copyright © PROTO SPACE All rights reserved.</p>
     </footer>
