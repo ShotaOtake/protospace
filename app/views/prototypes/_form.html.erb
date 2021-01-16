@@ -1,4 +1,7 @@
-<%= form_with local: true do |f|%>
+<%# _form.html.erbのフォームを正しい形に書き直した %>
+<%# modelオプションで指定しているのはコントローラーのnewアクションで定義したインスタンス変数 %>
+<%# 部分テンプレートのlocalsでprototypeという変数に@prototypeが代入されている %>
+<%= form_with model:prototype, local: true do |f|%>
   <div class="field">
     <%= f.label :hoge, "プロトタイプの名称" %><br />
     <%= f.text_field :hoge %>
