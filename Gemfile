@@ -55,3 +55,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # deviseをGemfileに記述し、bundle installを実行
 gem 'devise'
+
+# mini_magickとimage_processingのGemをGemfileに記述→bundle installを実行（image_processingについてはバージョンの指定をする）
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
