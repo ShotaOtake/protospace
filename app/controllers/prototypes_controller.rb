@@ -35,6 +35,14 @@ class PrototypesController < ApplicationController
   end
 
   def update
+    @prototype = Prototype.find(params[:id])
+    # データを更新する記述をし、更新されたときはそのプロトタイプの詳細ページに戻るような記述をした
+    if @prototype.update(prototype_params)
+      redirect_to prototype_path(@prototype)
+      # データが更新されなかったときは、編集ページに戻るようにrenderを用いて記述した
+    else
+      render :edit
+    end
   end
 
 
