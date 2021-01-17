@@ -28,6 +28,13 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.find(params[:id])
   end
 
+  # prototypesコントローラーにeditアクションとupdateアクションを設定
+  def edit
+  end
+
+  def update
+  end
+
 
   private
   # prototypesコントローラーのprivateメソッドにストロングパラメーターをセットし、特定の値のみを受け付けるようにした。且つ、user_idもmergeした
