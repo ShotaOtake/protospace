@@ -48,7 +48,13 @@ class PrototypesController < ApplicationController
   end
 
   # prototypesコントローラーにdestroyアクションを設定
+  # destroyアクションに、プロトタイプを削除し、トップページに戻るような記述をした
   def destroy
+    if @prototype.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 
 
