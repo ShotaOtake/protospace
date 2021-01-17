@@ -9,7 +9,8 @@
       <%# ログインしているユーザーがそのプロトタイプの投稿者であるときは、「編集」「削除」のボタンが表示されるように条件分岐した（ボタンのリンク先は仮置きのroot_pathのままでよい） %>
       <% if user_signed_in? && current_user.id == @prototype.user.id%>
         <div class="prototype__manage">
-          <%= link_to "編集する", root_path, class: :prototype__btn %>
+        <%# 「編集する」ボタンから、編集ページに遷移するようにパスを設定した（パスはrails routesを用いて確認する） %>
+          <%= link_to "編集する", edit_prototype_path, class: :prototype__btn %>
           <%= link_to "削除する", root_path, class: :prototype__btn %>
         </div>
       <% end %>
