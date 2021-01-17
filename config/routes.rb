@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # resourcesを用いてnewアクションとcreateアクションに対するルーティングを記述
   # resourcesを用いてshowアクションに対するルーティングを記述
   # resourcesを用いてdestroyアクションに対するルーティングを記述
-  resources :prototypes, only: [:new, :create, :show, :edit, :update, :destroy] do
+  resources :prototypes, except: :index do
+    resources :comments, only: :create
   end
 end
