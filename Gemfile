@@ -59,3 +59,5 @@ gem 'devise'
 # mini_magickとimage_processingのGemをGemfileに記述→bundle installを実行（image_processingについてはバージョンの指定をする）
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
+
+gem 'pry-rails'
