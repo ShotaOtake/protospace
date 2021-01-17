@@ -47,6 +47,10 @@ class PrototypesController < ApplicationController
     end
   end
 
+  # prototypesコントローラーにdestroyアクションを設定
+  def destroy
+  end
+
 
   private
   # prototypesコントローラーのprivateメソッドにストロングパラメーターをセットし、特定の値のみを受け付けるようにした。且つ、user_idもmergeした
