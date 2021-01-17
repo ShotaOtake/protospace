@@ -1,4 +1,6 @@
 class PrototypesController < ApplicationController
+  # コントローラで定義されたアクションが実行される前に、共通の処理を行う
+  before_action :set_prototype, except: [:index, :new, :create] 
   def index
     # インスタンス変数@prototypesを定義し、すべてのプロトタイプの情報を代入
     @prototypes = Prototype.all
@@ -25,7 +27,24 @@ class PrototypesController < ApplicationController
   # prototypesコントローラーにshowアクションを設定
   # showアクションにインスタンス変数@prototypeを定義した。且つ、Pathパラメータで送信されるID値で、Prototypeモデルの特定のオブジェクトを取得するように記述し、それを@prototypeに代入した
   def show
-    @prototype = Prototype.find(params[:id])
+    # @prototype = Prototype.find(params[:id])
+  end
+
+  # prototypesコントローラーにeditアクションとupdateアクションを設定
+  # editアクションにインスタンス変数@prototypeを定義した。且つ、Pathパラメータで送信されるID値で、Prototypeモデルの特定のオブジェクトを取得するように記述し、それを@prototypeに代入した
+  def edit
+    # @prototype = Prototype.find(params[:id])
+  end
+
+  def update
+    # @prototype = Prototype.find(params[:id])
+    # データを更新する記述をし、更新されたときはそのプロトタイプの詳細ページに戻るような記述をした
+    if @prototype.update(prototype_params)
+      redirect_to prototype_path(@prototype)
+      # データが更新されなかったときは、編集ページに戻るようにrenderを用いて記述した
+    else
+      render :edit
+    end
   end
 
 
@@ -33,6 +52,10 @@ class PrototypesController < ApplicationController
   # prototypesコントローラーのprivateメソッドにストロングパラメーターをセットし、特定の値のみを受け付けるようにした。且つ、user_idもmergeした
   def prototype_params
     params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
+  end
+
+  def set_prototype
+    @prototype = Prototype.find(params[:id])
   end
 
 end
