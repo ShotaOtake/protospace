@@ -29,7 +29,9 @@ class PrototypesController < ApplicationController
   end
 
   # prototypesコントローラーにeditアクションとupdateアクションを設定
+  # editアクションにインスタンス変数@prototypeを定義した。且つ、Pathパラメータで送信されるID値で、Prototypeモデルの特定のオブジェクトを取得するように記述し、それを@prototypeに代入した
   def edit
+    @prototype = Prototype.find(params[:id])
   end
 
   def update
