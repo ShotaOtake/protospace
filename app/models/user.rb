@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   # Userモデルにアソシエーション記述した
   has_many :prototypes
+  # commentに対するアソシエーションを設定
+  has_many :comments
+
+
 
   # Userモデルに各カラムのバリデーションを記述（「emailとpasswordが空だと保存できない」というバリデーションは標準で用意されているため、記述する必要はない）
   validates :name, presence: true

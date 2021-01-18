@@ -28,6 +28,10 @@ class PrototypesController < ApplicationController
   # showアクションにインスタンス変数@prototypeを定義した。且つ、Pathパラメータで送信されるID値で、Prototypeモデルの特定のオブジェクトを取得するように記述し、それを@prototypeに代入した
   def show
     # @prototype = Prototype.find(params[:id])
+    # @commentというインスタンス変数を定義し、Commentモデルの新規オブジェクトを代入
+    @comment = Comment.new
+    # インスタンス変数@commentsを定義し、その投稿に紐づくすべてのコメントを代入するための記述
+    @comments =@prototype.comments
   end
 
   # prototypesコントローラーにeditアクションとupdateアクションを設定
