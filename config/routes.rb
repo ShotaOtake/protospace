@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :prototypes, except: :index do
     resources :comments, only: :create
   end
+  # resourcesを用いてshowアクションに対するルーティングを記述
+  resources :users, only: :show
 end

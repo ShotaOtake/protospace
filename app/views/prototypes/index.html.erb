@@ -6,7 +6,8 @@
       <div class="greeting">
         こんにちは、
         <%# 「こんにちはユーザー名さん」の「ユーザー名」の部分に、今ログインしているユーザーのユーザー名が表示されるようにした %>
-        <%= link_to "#{current_user.name}さん", root_path, class: :greeting__link%>
+        <%# ユーザー詳細ページへ遷移できるようにパスを設定 %>
+        <%= link_to "#{current_user.name}さん", user_path(current_user), class: :greeting__link%>
       </div>
     <% end %>
     

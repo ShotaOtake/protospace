@@ -4,7 +4,8 @@
       <p class="prototype__hedding">
         <%= "プロトタイプのタイトル"%>
       </p>
-      <%= link_to "by #{@prototype.user.name}", root_path, class: :prototype__user %>
+      <%# プロトタイプ詳細ページのプロトタイプ投稿者の部分から、ユーザー詳細ページへ遷移できるようにパスを設定 %>
+      <%= link_to "by #{@prototype.user.name}", user_path(@prototype.user), class: :prototype__user %>
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
       <%# ログインしているユーザーがそのプロトタイプの投稿者であるときは、「編集」「削除」のボタンが表示されるように条件分岐した（ボタンのリンク先は仮置きのroot_pathのままでよい） %>
       <% if user_signed_in? && current_user.id == @prototype.user.id%>
@@ -55,7 +56,8 @@
           <% @comments.each do |comment| %>
             <li class="comments_list">
               <%= "#{comment.text}" %>
-              <%= link_to "[#{comment.user.name}]", root_path ,class: :comment_user %>
+              <%# 各コメントの投稿者の部分から、ユーザー詳細ページへ遷移できるようにパスを設定 %>
+              <%= link_to "[#{comment.user.name}]", user_path(comment.user) ,class: :comment_user %>
             </li>
           <% end%>
           <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
