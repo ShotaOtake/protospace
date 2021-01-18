@@ -2,6 +2,20 @@ class CommentsController < ApplicationController
 
   # commentsコントローラーにcreateアクションを設定
   def create
+    @comment = Comment.new(comment_params)
+
+    if @comment.save
+      redirect_to prototype_path(@comment.prototype)
+    
+    # データが保存されなかったときは詳細ページに戻るようrenderを用いて記述した
+    # なぜrenderを使っている?→途中まで記述したコメントを残すため
+    # アクション1行目のインスタンス変数は残り続ける
+    # render後のshowに渡すためのインスタンス変数を作成(renderはコントローラー経由がされない)
+    else
+      @prototype = @comment.prototype
+      @comments = @prototype.comments
+      render "prototypes/show"
+    end
   end
 
 
