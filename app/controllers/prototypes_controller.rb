@@ -30,6 +30,8 @@ class PrototypesController < ApplicationController
     # @prototype = Prototype.find(params[:id])
     # @commentというインスタンス変数を定義し、Commentモデルの新規オブジェクトを代入
     @comment = Comment.new
+    # インスタンス変数@commentsを定義し、その投稿に紐づくすべてのコメントを代入するための記述
+    @comments =@prototype.comments
   end
 
   # prototypesコントローラーにeditアクションとupdateアクションを設定
