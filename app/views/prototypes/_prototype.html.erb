@@ -7,6 +7,7 @@
     <p class="card__summary">
       <%= prototype.catch_copy %>
     </p>
-    <%= link_to "by #{prototype.user.name}", root_path, class: :card__user %>
+    <%# 各プロトタイプの投稿者の部分から、ユーザー詳細ページへ遷移できるようにパスを設定 %>
+    <%= link_to "by #{prototype.user.name}", user_path(prototype.user), class: :card__user %>
   </div>
 </div>
