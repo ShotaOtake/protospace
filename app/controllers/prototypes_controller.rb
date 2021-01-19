@@ -1,6 +1,10 @@
 class PrototypesController < ApplicationController
   # コントローラで定義されたアクションが実行される前に、共通の処理を行う
   before_action :set_prototype, except: [:index, :new, :create] 
+  # authenticate_user!を用いて制限を設けた（onlyまたはexceptオプションを用いて特定のアクションのみを指定する）
+  before_action :authenticate_user!, except: [:index, :show]
+  # prototypesコントローラーにおいて、投稿者以外がeditアクションにアクセスしたらトップページにリダイレクトするように記述
+  before_action :contributor_confirmation, only: [:edit, :update,:destroy]
   def index
     # インスタンス変数@prototypesを定義し、すべてのプロトタイプの情報を代入
     @prototypes = Prototype.all
@@ -70,6 +74,10 @@ class PrototypesController < ApplicationController
 
   def set_prototype
     @prototype = Prototype.find(params[:id])
+  end
+
+  def contributor_confirmation
+    redirect_to root_path unless current_user == @prototype.user
   end
 
 end
